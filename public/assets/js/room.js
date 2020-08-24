@@ -9,6 +9,7 @@ var participants = 1;
 document.getElementById('users').innerText = participants;
 
 const myVideo = document.createElement('video');
+myVideo.className=('col-xl-3 col-lg-4 col-md-6 col-sm-12');
 myVideo.muted = true;
 
 console.log('I.m here');
@@ -23,6 +24,7 @@ navigator.mediaDevices.getUserMedia({
         call.answer(stream);
 
         const video = document.createElement('video');
+        video.className=('col-xl-3 col-lg-4 col-md-6 col-sm-12');
 
         call.on('stream', userVideoStream => {
             addVideoStream(video, userVideoStream);
@@ -53,6 +55,7 @@ peer.on('open', id => {
 function connectToNewUser(userId, stream) {
     const call = peer.call(userId, stream);
     const video = document.createElement('video');
+    video.className=('col-xl-3 col-lg-4 col-md-6 col-sm-12');
 
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream);
