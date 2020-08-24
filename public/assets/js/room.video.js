@@ -27,6 +27,8 @@ navigator.mediaDevices.getUserMedia({
         video.className=('col-xl-3 col-lg-4 col-md-6 col-sm-12');
 
         call.on('stream', userVideoStream => {
+            participants++;
+            document.getElementById('users').innerText = participants;
             addVideoStream(video, userVideoStream);
 
         })
@@ -103,6 +105,7 @@ function copyInvite() {
     document.body.removeChild(dummy);
 
     var x = document.getElementById("snackbar");
+    x.innerText= "Successfully copied invitation link";
     x.className = "show";
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }

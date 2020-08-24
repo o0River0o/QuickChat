@@ -12,12 +12,12 @@ app.get('/', (req, res) => {
     res.render('index')
 })
 
-app.get('/rooms/', (req, res) => {
-    res.redirect(`/rooms/${roomId()}`);
+app.get('/rooms/:type', (req, res) => {
+    res.redirect(`/rooms/${req.params.type}/${roomId()}`);
 });
 
-app.get('/rooms/:room', (req, res) => {
-    res.render('rooms/room', { roomId: req.params.room })
+app.get('/rooms/:type/:room', (req, res) => {
+    res.render(`rooms/${req.params.type}/room`, { roomId: req.params.room })
 });
 
 io.on('connection', socket => {
